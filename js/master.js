@@ -1,3 +1,5 @@
+var noclick = false
+
 function getClosestFactors(num) {
     if (num < 1) {
         return null; // No factors for 1 or less
@@ -27,6 +29,7 @@ window.onload = function () {
     var closeButton = document.getElementById("close");
     var hidden = document.getElementById("hidden");
     var dialogContainer = document.getElementById("dialog-container");
+    var removeButton = document.getElementById("remove");
 
     closeButton.onclick = function () {
         hidden.appendChild(dialog);
@@ -83,7 +86,10 @@ window.onload = function () {
         let elem = document.createElement('div')
         elem.classList = 'panel narrow'
         elem.onclick = function() {
-            window.open('https://www.example.com/')
+            if (noclick == false) {
+                window.open('https://www.example.com/')
+            }
+            noclick = false
         }
         elem.innerHTML = `<div class='square'><svg xmlns="http://www.w3.org/2000/svg" viewbox='0 0 420 420' width="420"
         height="420" stroke="#000" fill="none">
@@ -97,6 +103,17 @@ window.onload = function () {
         name.innerHTML = 'Example'
 
         elem.appendChild(name)
+        elem.onmouseenter = function() {
+            elem.appendChild(removeButton)
+            removeButton.onclick = function() {
+                noclick = true
+                hidden.appendChild(elem)
+            }
+        }
+
+        elem.onmouseleave = function() {
+            hidden.appendChild(removeButton)
+        }
 
         tbl.push(elem)
     }
