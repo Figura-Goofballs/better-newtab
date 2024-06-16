@@ -104,8 +104,8 @@ label {
 .panel {
     background-color: #11111b;
 
-    width: 1fr;
-    height: 1fr;
+    width: 100%;
+    height: 100%;
 
     display: table;
     margin: 0 auto;
@@ -157,7 +157,7 @@ label {
     padding: 0;
 }
 
-.panel.wide svg {
+.panel svg {
     stroke: #ff7011;
 
     margin-top: 10%;
@@ -166,7 +166,7 @@ label {
     height: 50%;
 }
 
-.panel.narrow svg {
+.panel svg {
     stroke: #ff7011;
     object-fit: cover;
 
