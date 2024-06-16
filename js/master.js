@@ -1,4 +1,8 @@
 window.onload = function() {
+    if (navigator.userAgent.includes('Firefox')) {
+        document.getElementById('favicon').setAttribute('href', 'chrome://branding/content/icon32.png')
+    }
+
     var dialog;
 
     var closeButton = document.getElementById("close");
