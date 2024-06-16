@@ -79,9 +79,9 @@ window.onload = function () {
     // Example panels   
     var tbl = []
 
-    for (i = 0; i < 15; i++) {
+    for (i = 0; i < 128; i++) {
         let elem = document.createElement('div')
-        elem.classList = 'panel'
+        elem.classList = 'panel narrow'
         elem.onclick = function() {
             window.open('https://www.example.com/')
         }
