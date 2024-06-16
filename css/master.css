@@ -211,15 +211,6 @@ label {
 
 .panel svg {
     stroke: #ff7011;
-
-    margin-top: 10%;
-
-    width: auto;
-    height: 50%;
-}
-
-.panel svg {
-    stroke: #ff7011;
     object-fit: cover;
 
     margin-top: 10%;
