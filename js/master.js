@@ -24,6 +24,11 @@ function getClosestFactors(num) {
 }
 
 window.onload = function () {
+    // Disable dark reader (it fucks up my css)
+    const lock = document.createElement('meta');
+    lock.name = 'darkreader-lock';
+    document.head.appendChild(lock);
+
     var dialog;
 
     var closeButton = document.getElementById("close");
