@@ -123,6 +123,8 @@ label {
 .panel svg {
     stroke: #ff7011;
 
+    margin-top: 10%;
+
     width: 50%;
     height: 50%;
 }
