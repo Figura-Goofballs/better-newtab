@@ -1,3 +1,13 @@
+@font-face {
+    font-family: open-sans;
+    src: url('/fonts/opensans.ttf');
+}
+
+@font-face {
+    font-family: open-sans-italic;
+    src: url('/fonts/opensans-italic.ttf');
+}
+
 body {
     padding: 0;
     margin: 0;
@@ -65,4 +75,16 @@ div#background {
     top: 50%;
 
     border-radius: 2%;
+}
+
+* {
+    font-family: open-sans, sans-serif;
+}
+
+input {
+    margin-top: 3px;
+}
+
+label {
+    margin-left: 3px;
 }
