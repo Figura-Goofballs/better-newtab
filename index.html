@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>New Tab</title>
+        <meta charset="ascii">
+        <link rel="stylesheet" href="/css/master.css">
+    </head>
+    <body>
+        <!-- Why should I have to do this firefox? -->
+        <div id="background">
+            <button id="add" class="icon top-right">
+                <svg xmlns="http://www.w3.org/2000/svg" width="45px" height="45px" viewBox="0 0 390 390">
+                    <path d="M45 195 H345 M195 45 V345" style="fill:none;stroke: #FFFFFF; stroke-width:45" stroke-linecap="round" />
+                </svg>
+            </button>
+
+            <div id="dialog-container"></div>
+        </div>
+        <script src="/js/master.js"></script>
+    </body>
+
+    <!-- Store hidden elements here -->
+    <div id="hidden" style="visibility: hidden; position: fixed;">
+        <!-- Remove button -->
+        <button id="remove" class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="45px" height="45px" viewBox="0 0 390 390">
+                <path d="M45 195 H345" style="fill:none;stroke: #FFFFFF; stroke-width:45" stroke-linecap="round" />
+            </svg>
+        </button>
+
+        <button id="close" class="icon top-right-1-offset">
+            <svg class="icon top-right" xmlns="http://www.w3.org/2000/svg" width="45px" height="45px" viewBox="0 0 390 390">
+                <path d="M45 45 L345 345 M345 45 L45 345" style="fill:none;stroke: #000000; stroke-width:45" stroke-linecap="round" />
+            </svg>
+        </button>
+
+        <div class="black-transparent-50 fullsize" id="add-dialog">
+            <div id="add-close-container" class="dialog" style="height: 50%; aspect-ratio: 3.2/4;">
+            </div>
+        </div>
+    </div>
+</html>

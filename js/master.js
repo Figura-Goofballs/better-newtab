@@ -1,0 +1,21 @@
+window.onload = function() {
+    var dialog;
+
+    var closeButton = document.getElementById("close");
+    var hidden = document.getElementById("hidden");
+    var dialogContainer = document.getElementById("dialog-container");
+
+    closeButton.onclick = function() {
+        hidden.appendChild(dialog);
+    }
+
+    document.getElementById("add").onclick = function() {
+        document.getElementById("add-close-container").appendChild(closeButton) ;
+
+        dialogContainer.appendChild(document.getElementById("add-dialog"));
+
+        closeButton.style = 'position: absolute; top: 0; right: 0; translate: translateX(-100%);'
+        
+        dialog = document.getElementById("add-dialog");
+    }
+}

@@ -1,0 +1,68 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+div#background {
+    background: -webkit-linear-gradient(45deg, rgba(0,255,255,1) 0%, rgba(255,95,0,1) 85%);
+    background:    -moz-linear-gradient(45deg, rgba(0,255,255,1) 0%, rgba(255,95,0,1) 85%);
+    background:      -o-linear-gradient(45deg, rgba(0,255,255,1) 0%, rgba(255,95,0,1) 85%);
+    background:         linear-gradient(45deg, rgba(0,255,255,1) 0%, rgba(255,95,0,1) 85%);
+
+    width: 100%;
+    height: 100%;
+
+    position: fixed;
+
+    margin: 0px;
+    padding: 0px;
+}
+
+.icon {
+    width: 45px;
+    height: 45px;
+
+    border-width: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.icon#add {
+    transform: translateX(-45px);
+}
+
+.icon svg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.top-right {
+    position: absolute;
+    
+    right: 0;
+    top: 0;
+
+    translate: translateX(-100%);
+}
+
+.black-transparent-50 {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.fullsize {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+}
+
+.dialog {
+    position: absolute;
+    background: #FFFFFF;
+
+    transform: translateX(-50%) translateY(-50%);
+    left: 50%;
+    top: 50%;
+
+    border-radius: 2%;
+}
