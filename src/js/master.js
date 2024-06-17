@@ -23,7 +23,9 @@ function getClosestFactors(num) {
 
 window.addEventListener('load', function() {
     if (navigator.userAgent.includes('Firefox')) {
+        this.document.getElementById('fallbackfavicon').remove()
         document.getElementById('favicon').setAttribute('href', 'chrome://branding/content/icon32.png')
+        document.getElementById('favicon').setAttribute('type', 'image/png')
     }else {
         document.getElementById('favicon').setAttribute('href', '/favicon.svg')
     }
