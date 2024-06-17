@@ -1,10 +1,12 @@
 @font-face {
     font-family: open-sans;
+    font-weight: 300;
     src: url('/fonts/opensans.ttf');
 }
 
 @font-face {
     font-family: open-sans-italic;
+    font-weight: 300;
     src: url('/fonts/opensans-italic.ttf');
 }
 
@@ -310,4 +312,51 @@ a:active {
 #remove svg {
     width: 100%;
     height: 100%;
+}
+
+#search-button {
+    width: 10%;
+    height: 100%;
+    
+    position: fixed;
+
+    left: 1%;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    background: #00000000;
+    border: none;
+}
+
+#search-button .icon {
+    width: 100%;
+    height: 100%;
+
+    stroke: #7F7F7F;
+}
+
+#search {
+    width: 90%;
+    height: 50%;
+
+    margin-top: auto;
+    margin-bottom: auto;
+    
+    transform: translateX(10%) translateY(50%);
+    
+    background: #00000000;
+    border: none;
+}
+
+#search-container {
+    height: 5%;
+    width: 50%;
+   
+    top: 15px;
+    left: 50%;
+    
+    transform: translateX(50%);
+    
+    background-color: #FFFFFF;
+    border-radius: 1000000000px;
 }
