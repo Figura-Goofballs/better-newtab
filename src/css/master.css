@@ -141,7 +141,7 @@ label {
     height: 100%;
 
     display: table;
-    margin: 0 auto;
+    margin: 0;
 
     transition: all 0.1s;
 
@@ -172,7 +172,6 @@ label {
     text-align: center;
 
     position: relative;
-    margin-top: -60%;
 }
 
 .square {
@@ -192,7 +191,7 @@ label {
         height: 100%;
 
         display: table;
-        margin: 0 auto;
+        margin: 0;
 
         transition: all 0.1s;
 
@@ -223,7 +222,6 @@ label {
         text-align: center;
 
         position: relative;
-        margin-top: -60%;
     }
 
     .square {
@@ -258,7 +256,16 @@ label {
     transform: translateX(-50%) translateY(-50%);
 
     margin: 0;
-    padding: 0;
+}
+
+.fakesquare {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    width: 100%;
 }
 
 .panel svg {
@@ -266,8 +273,9 @@ label {
     object-fit: cover;
 
     margin-top: 10%;
+    aspect-ratio: 1/1;
 
-    width: 50%;
+    width: 25%;
     height: 25%;
 }
 
