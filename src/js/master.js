@@ -1,6 +1,3 @@
-
-var noclick = false
-
 function getClosestFactors(num) {
     if (num < 1) {
         return null; // No factors for 1 or less
@@ -24,7 +21,7 @@ function getClosestFactors(num) {
     }
 }
 
-window.onload = function() {
+window.addEventListener('load', function() {
     if (navigator.userAgent.includes('Firefox')) {
         document.getElementById('favicon').setAttribute('href', 'chrome://branding/content/icon32.png')
     }else {
@@ -37,18 +34,24 @@ window.onload = function() {
     document.head.appendChild(lock);
 
     var dialog;
+    var removeElement;
 
     var closeButton = document.getElementById("close");
     var hidden = document.getElementById("hidden");
     var dialogContainer = document.getElementById("dialog-container");
     var removeButton = document.getElementById("remove");
 
-    closeButton.onclick = function () {
+    removeButton.addEventListener('click', function() {
+        hidden.appendChild(removeElement)
+        noclick = true
+    }, true)
+
+    closeButton.addEventListener('click', function () {
         hidden.appendChild(dialog);
         dialogContainer.style.visibility = 'hidden';
-    }
+    })
 
-    document.getElementById("add").onclick = function () {
+    document.getElementById("add").addEventListener('click', function () {
         document.getElementById("add-close-container").appendChild(closeButton);
 
         dialogContainer.appendChild(document.getElementById("add-dialog"));
@@ -57,9 +60,9 @@ window.onload = function() {
         dialogContainer.style.visibility = 'visible';
 
         dialog = document.getElementById("add-dialog");
-    }
+    })
 
-    document.getElementById("add-panel").onclick = function () {
+    document.getElementById("add-panel").addEventListener('click', function () {
         var url = document.getElementById("url-input").value;
         var name = document.getElementById("name-input").value;
         var icon = document.getElementById("icon-input").value;
@@ -70,7 +73,7 @@ window.onload = function() {
 
         console.log(url, name, icon)
         closeButton.onclick()
-    }
+    })
 
 
     var panelContainer = document.getElementById('panel-container')
@@ -97,12 +100,13 @@ window.onload = function() {
     for (i = 0; i < 128; i++) {
         let elem = document.createElement('div')
         elem.classList = 'panel narrow'
-        elem.onclick = function() {
+        elem.addEventListener('click', function() {
             if (noclick == false) {
                 window.open('https://www.example.com/')
             }
+
             noclick = false
-        }
+        })
         elem.innerHTML = `<div class='square'><svg xmlns="http://www.w3.org/2000/svg" viewbox='0 0 420 420' width="420"
         height="420" stroke="#000" fill="none">
         <path stroke-width="26"
@@ -115,20 +119,18 @@ window.onload = function() {
         name.innerHTML = 'Example'
 
         elem.appendChild(name)
-        elem.onmouseenter = function() {
+        elem.addEventListener('mouseenter', function() {
             elem.appendChild(removeButton)
-            removeButton.onclick = function() {
-                noclick = true
-                hidden.appendChild(elem)
-            }
-        }
 
-        elem.onmouseleave = function() {
+            removeElement = elem
+        })
+
+        elem.addEventListener('mouseleave', function() {
             hidden.appendChild(removeButton)
-        }
+        })
 
         tbl.push(elem)
     }
 
     generatePanels(tbl)
-}
+})
