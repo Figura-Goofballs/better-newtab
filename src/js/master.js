@@ -37,6 +37,7 @@ window.addEventListener('load', function() {
 
     var dialog;
     var removeElement;
+    var noclick = false;
 
     var closeButton = document.getElementById("close");
     var hidden = document.getElementById("hidden");
@@ -104,7 +105,7 @@ window.addEventListener('load', function() {
         elem.classList = 'panel narrow'
         elem.addEventListener('click', function() {
             if (noclick == false) {
-                window.open('https://www.example.com/')
+                location = 'https://www.example.com/'
             }
 
             noclick = false
