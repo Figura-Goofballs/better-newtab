@@ -1,3 +1,4 @@
+
 var noclick = false
 
 function getClosestFactors(num) {
@@ -23,7 +24,13 @@ function getClosestFactors(num) {
     }
 }
 
-window.onload = function () {
+window.onload = function() {
+    if (navigator.userAgent.includes('Firefox')) {
+        document.getElementById('favicon').setAttribute('href', 'chrome://branding/content/icon32.png')
+    }else {
+        document.getElementById('favicon').setAttribute('href', '/favicon.svg')
+    }
+ 
     // Disable dark reader (it fucks up my css)
     const lock = document.createElement('meta');
     lock.name = 'darkreader-lock';
