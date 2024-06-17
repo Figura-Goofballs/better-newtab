@@ -23,7 +23,9 @@ function getClosestFactors(num) {
 
 window.addEventListener('load', function() {
     if (navigator.userAgent.includes('Firefox')) {
+        this.document.getElementById('fallbackfavicon').remove()
         document.getElementById('favicon').setAttribute('href', 'chrome://branding/content/icon32.png')
+        document.getElementById('favicon').setAttribute('type', 'image/png')
     }else {
         document.getElementById('favicon').setAttribute('href', '/favicon.svg')
     }
@@ -35,6 +37,7 @@ window.addEventListener('load', function() {
 
     var dialog;
     var removeElement;
+    var noclick = false;
 
     var closeButton = document.getElementById("close");
     var hidden = document.getElementById("hidden");
@@ -102,7 +105,7 @@ window.addEventListener('load', function() {
         elem.classList = 'panel narrow'
         elem.addEventListener('click', function() {
             if (noclick == false) {
-                window.open('https://www.example.com/')
+                location = 'https://www.example.com/'
             }
 
             noclick = false
