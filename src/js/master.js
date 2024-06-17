@@ -14,20 +14,20 @@ function getClosestFactors(num) {
         if (num % i === 0) {
             if (i == 1 || num / i == 1) {
                 return getClosestFactors(num + 1);
-            }else {
+            } else {
                 return [i, num / i]; // Found factors, return them as an array
             }
         }
     }
 }
 
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     if (navigator.userAgent.includes('Firefox')) {
         document.getElementById('favicon').setAttribute('href', 'chrome://branding/content/icon32.png')
-    }else {
+    } else {
         document.getElementById('favicon').setAttribute('href', '/favicon.svg')
     }
- 
+
     // Disable dark reader (it fucks up my css)
     const lock = document.createElement('meta');
     lock.name = 'darkreader-lock';
@@ -41,7 +41,7 @@ window.addEventListener('load', function() {
     var dialogContainer = document.getElementById("dialog-container");
     var removeButton = document.getElementById("remove");
 
-    removeButton.addEventListener('click', function() {
+    removeButton.addEventListener('click', function () {
         hidden.appendChild(removeElement)
         noclick = true
     }, true)
@@ -100,7 +100,7 @@ window.addEventListener('load', function() {
     for (i = 0; i < 128; i++) {
         let elem = document.createElement('div')
         elem.classList = 'panel narrow'
-        elem.addEventListener('click', function() {
+        elem.addEventListener('click', function () {
             if (noclick == false) {
                 window.open('https://www.example.com/')
             }
@@ -119,13 +119,13 @@ window.addEventListener('load', function() {
         name.innerHTML = 'Example'
 
         elem.appendChild(name)
-        elem.addEventListener('mouseenter', function() {
+        elem.addEventListener('mouseenter', function () {
             elem.appendChild(removeButton)
 
             removeElement = elem
         })
 
-        elem.addEventListener('mouseleave', function() {
+        elem.addEventListener('mouseleave', function () {
             hidden.appendChild(removeButton)
         })
 
@@ -133,4 +133,27 @@ window.addEventListener('load', function() {
     }
 
     generatePanels(tbl)
+
+    var storedEngine = this.localStorage.getItem("search-engine")
+
+    var searchEngine
+    if (storedEngine == null) {
+        searchEngine = 'https://www.google.com/search?q=%s'
+        this.localStorage.setItem('search-engine', 'https://www.google.com/search?q=%s')
+    }else {
+        searchEngine = storedEngine
+    }
+
+    document.getElementById('search').focus()
+    document.getElementById('search').select()
+    document.getElementById('search').addEventListener('keydown', function (e) {
+        console.log(e.key)
+
+        if (e.key === 'Enter') {
+            location = searchEngine.replace('%s', encodeURIComponent(document.getElementById('search').value))
+        }
+    })
+    document.getElementById('search-button').addEventListener('click', function () {
+        location = searchEngine.replace('%s', encodeURIComponent(document.getElementById('search').value))
+    })
 })
