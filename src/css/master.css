@@ -269,7 +269,6 @@ label {
 }
 
 .panel svg {
-    stroke: #ff7011;
     object-fit: cover;
 
     margin-top: 10%;
@@ -277,6 +276,15 @@ label {
 
     width: 25%;
     height: 25%;
+}
+
+.panel svg.orangefill * {
+    stroke: #ff7011;
+    fill: #ff7011;
+}
+
+.panel svg.orange * {
+    stroke: #ff7011;
 }
 
 a {
